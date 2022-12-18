@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var selected setget set_selected, get_selected
+export (bool) var selected setget set_selected, get_selected
 
 func set_selected(value):
 	selected = value
@@ -11,8 +11,8 @@ func get_selected():
 export (int) var ACCELERATION = 1000
 export (int) var MAX_SPEED = 200
 export (float) var FRICTION = .25
-export (int) var GRAVITY = 400
-export (int) var JUMP_FORCE = 300
+export (int) var GRAVITY = 300
+export (int) var JUMP_FORCE = 200
 
 onready var sprite = $Sprite
 #onready var animationPlayer = $AnimationPlayer
