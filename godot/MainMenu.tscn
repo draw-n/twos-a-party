@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://MainMenu.gd" type="Script" id=1]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0901961, 0.203922, 0.266667, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 92.0
+margin_top = 95.0
+margin_right = 192.0
+margin_bottom = 126.0
+text = "Two's a Party,
+Three's a Crowd"
+
+[node name="Play" type="Button" parent="."]
+margin_left = 95.0
+margin_top = 141.0
+margin_right = 133.0
+margin_bottom = 161.0
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 95.0
+margin_top = 174.0
+margin_right = 133.0
+margin_bottom = 194.0
+text = "Quit"
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

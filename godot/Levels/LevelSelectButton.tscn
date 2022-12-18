@@ -1,0 +1,26 @@
+[gd_scene format=2]
+
+[node name="LevelSelectButton" type="TextureButton"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Star1" type="TextureRect" parent="HBoxContainer"]
+margin_bottom = 40.0
+
+[node name="Star2" type="TextureRect" parent="HBoxContainer"]
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 40.0
+
+[node name="Star3" type="TextureRect" parent="HBoxContainer"]
+margin_left = 8.0
+margin_right = 8.0
+margin_bottom = 40.0
