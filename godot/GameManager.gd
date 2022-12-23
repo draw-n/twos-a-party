@@ -1,6 +1,13 @@
 extends Node
 
 var current_level = -2;
+var selected_players = [] setget set_selected_players, get_selected_players
+
+func set_selected_players(list):
+	selected_players = list
+
+func get_selected_players():
+	return selected_players
 
 var level_info = {
 	#tutorial 1

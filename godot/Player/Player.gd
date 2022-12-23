@@ -7,7 +7,7 @@ func set_selected(value):
 
 func get_selected():
 	return selected
-
+export (Texture) var CHARACTER_SPRITE
 export (int) var ACCELERATION = 1000
 export (int) var MAX_SPEED = 200
 export (float) var FRICTION = .25
@@ -15,6 +15,7 @@ export (int) var GRAVITY = 300
 export (int) var JUMP_FORCE = 200
 
 onready var sprite = $Sprite
+onready var indicator = $Indicator
 #onready var animationPlayer = $AnimationPlayer
 onready var collision_shape2D = $CollisionShape2D
 
@@ -23,12 +24,13 @@ var double_jump = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if CHARACTER_SPRITE != null:
+		sprite.texture = CHARACTER_SPRITE
 
 
 
 func _physics_process(delta):
-	
+	indicator.visible = get_selected()
 	var x_input = 0
 	if selected:
 		x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
