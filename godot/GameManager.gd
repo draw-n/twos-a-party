@@ -3,6 +3,12 @@ extends Node
 var current_level = -2;
 var selected_players = [] setget set_selected_players, get_selected_players
 
+func _input(event):
+	if event.is_action_pressed("ui_pause"):
+		get_tree().set("paused", !get_tree().paused)
+		print("paused")
+	if event.is_action_pressed("ui_accept"):
+		get_tree().reload_current_scene()
 func set_selected_players(list):
 	selected_players = list
 
@@ -119,7 +125,4 @@ var level_info = {
 		"stars": 0,
 	}
 }
-func _input(event):
-	if event.is_action_pressed("ui_pause"):
-		get_tree().set("paused", !get_tree().paused)
-		print("paused")
+

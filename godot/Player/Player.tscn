@@ -1,11 +1,127 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Player/player_snow_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://Player/player_dark_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://Player/player_indictator_spritesheet.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Jump"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 28 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Run"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Sit"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.5, 0.6, 0.8, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14, 15, 16, 17 ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "Sit_to_Run"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 38, 37 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Stand"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.6, 0.7, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 19, 20, 21, 22, 23 ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "Stand_to_Sit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 38 ]
+}
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 3 )
@@ -19,6 +135,75 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Run"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Sit"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "Sit_to_Run"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "Sit_to_Run"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Stand"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "Stand_to_Sit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachine" id=10]
+states/Jump/node = SubResource( 12 )
+states/Jump/position = Vector2( 625, -26.6073 )
+states/Run/node = SubResource( 13 )
+states/Run/position = Vector2( 330, 82 )
+states/Sit/node = SubResource( 14 )
+states/Sit/position = Vector2( 625, 177 )
+states/Sit_to_Jump/node = SubResource( 34 )
+states/Sit_to_Jump/position = Vector2( 625, 63.3927 )
+states/Sit_to_Run/node = SubResource( 28 )
+states/Sit_to_Run/position = Vector2( 490, 126.393 )
+states/Stand/node = SubResource( 15 )
+states/Stand/position = Vector2( 130, -26.6073 )
+states/Stand_to_Sit/node = SubResource( 29 )
+states/Stand_to_Sit/position = Vector2( 130, 177 )
+transitions = [ "Stand", "Run", SubResource( 18 ), "Run", "Stand", SubResource( 20 ), "Run", "Jump", SubResource( 21 ), "Stand", "Jump", SubResource( 22 ), "Jump", "Stand", SubResource( 24 ), "Jump", "Run", SubResource( 25 ), "Stand", "Stand_to_Sit", SubResource( 30 ), "Stand_to_Sit", "Sit", SubResource( 31 ), "Sit", "Sit_to_Run", SubResource( 32 ), "Sit_to_Run", "Run", SubResource( 33 ), "Sit_to_Jump", "Jump", SubResource( 35 ), "Sit", "Sit_to_Jump", SubResource( 36 ) ]
+start_node = "Stand"
+graph_offset = Vector2( 0, -56.6073 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=11]
+
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 3
@@ -28,15 +213,36 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -3 )
 texture = ExtResource( 2 )
+offset = Vector2( 2, -3 )
+hframes = 9
+vframes = 5
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Jump = SubResource( 5 )
+anims/RESET = SubResource( 9 )
+anims/Run = SubResource( 6 )
+anims/Sit = SubResource( 7 )
+anims/Sit_to_Run = SubResource( 26 )
+anims/Stand = SubResource( 8 )
+anims/Stand_to_Sit = SubResource( 27 )
 
 [node name="Indicator" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -20 )
 frames = SubResource( 4 )
 playing = true
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 10 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 11 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
