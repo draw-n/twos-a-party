@@ -41,6 +41,13 @@ func _ready():
 	if CHARACTER_SPRITE != null:
 		sprite.texture = CHARACTER_SPRITE
 	animationTree.active = true
+	animationTree.set("parameters/Stand/blend_position", 1)
+	animationTree.set("parameters/Run/blend_position", 1)
+	animationTree.set("parameters/Sit/blend_position", 1)
+	animationTree.set("parameters/Jump/blend_position", 1)
+	animationTree.set("parameters/SitToJump/blend_position", 1)
+	animationTree.set("parameters/SitToRun/blend_position", 1)
+	animationTree.set("parameters/StandToSit/blend_position", 1)
 
 func get_gravity():
 	return JUMP_GRAVITY if motion.y < 0.0 else FALL_GRAVITY
@@ -56,7 +63,13 @@ func _physics_process(delta):
 		state = STAND
 		motion.x += x_input * ACCELERATION
 		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
-		sprite.flip_h = x_input < 0
+		animationTree.set("parameters/Stand/blend_position", x_input)
+		animationTree.set("parameters/Run/blend_position", x_input)
+		animationTree.set("parameters/Sit/blend_position", x_input)
+		animationTree.set("parameters/Jump/blend_position", x_input)
+		animationTree.set("parameters/SitToJump/blend_position", x_input)
+		animationTree.set("parameters/SitToRun/blend_position", x_input)
+		animationTree.set("parameters/StandToSit/blend_position", x_input)
 		animationState.travel("Run")
 	else:
 		if started == false:
