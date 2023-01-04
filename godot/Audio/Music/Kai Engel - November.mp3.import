@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Kai Engel - November.mp3-38300aa3b72accaf0f45cc60ba82dcac.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Kai Engel - November.mp3"
+dest_files=[ "res://.import/Kai Engel - November.mp3-38300aa3b72accaf0f45cc60ba82dcac.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

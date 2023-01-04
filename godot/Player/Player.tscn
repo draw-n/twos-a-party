@@ -5,7 +5,7 @@
 [ext_resource path="res://Player/player_indictator_spritesheet.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 8 )
+extents = Vector2( 9, 8 )
 
 [sub_resource type="Animation" id=38]
 resource_name = "JumpLeft"
@@ -369,6 +369,7 @@ graph_offset = Vector2( 0, -56.6073 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( 1, 0 )
 collision_layer = 2
 collision_mask = 3
 script = ExtResource( 1 )
@@ -377,8 +378,8 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -2 )
 texture = ExtResource( 2 )
-offset = Vector2( 2, -3 )
 hframes = 9
 vframes = 10
 frame = 1

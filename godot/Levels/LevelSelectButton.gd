@@ -12,13 +12,12 @@ export (String) var path;
 onready var label = $Label
 onready var stars = $HBoxContainer
 
-export (Texture) var texture;
-
 func _ready():
 	if level <= 0:
 		label.set("text", str(level + 3))
 	else:
 		label.set("text", str(level))
+
 	self.set("texture_normal", normal_texture);
 	self.set("texture_pressed", pressed_texture);
 	self.set("texture_hover", hover_texture);
@@ -27,6 +26,7 @@ func _ready():
 	if GameManager.level_info[level]["unlocked"] == false:
 		self.set("disabled", true)
 	var individual_stars = stars.get_children()
+	label.set("visible", !self.disabled)
 	if GameManager.level_info[level]["complete"] == true:
 		for i in range(GameManager.level_info[level]["stars"]):
 			individual_stars[i].show()

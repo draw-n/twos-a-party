@@ -13,12 +13,10 @@ func set_selected(value):
 func get_selected():
 	return selected
 export (Texture) var CHARACTER_SPRITE
-export (int) var ACCELERATION = 1000
-export (int) var MAX_SPEED = 200
+export (int) var ACCELERATION = 500
+export (int) var MAX_SPEED = 90
 export (float) var FRICTION = .25
-export (int) var GRAVITY = 300
-export (int) var JUMP_FORCE = 200
-export (float) var JUMP_HEIGHT = 100
+export (float) var JUMP_HEIGHT = 50
 export (float) var JUMP_TIME_TO_PEAK = 0.5
 export (float) var JUMP_TIME_TO_DESCEND = 0.4
 
@@ -32,6 +30,7 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var collision_shape2D = $CollisionShape2D
 onready var timer = $Timer
 
+var keys = []
 var state = SIT
 var motion = Vector2.ZERO
 var started = false
@@ -56,7 +55,7 @@ func _physics_process(delta):
 	indicator.visible = get_selected()
 	var x_input = 0
 	if selected:
-		x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		x_input = Input.get_action_raw_strength("ui_right") - Input.get_action_strength("ui_left")
 	
 	if x_input != 0:
 		started = false

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Levels/LevelSelectButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/LevelSelectButtons/tutorial_pressed.png" type="Texture" id=3]
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -11,24 +12,106 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.643137, 0.792157, 0.854902, 1 )
 
-[node name="LevelSelectButton" parent="." instance=ExtResource( 1 )]
-margin_left = 115.0
+[node name="TutorialLevels" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -135.0
 margin_top = 75.0
-margin_right = 155.0
-margin_bottom = 115.0
+margin_right = 135.0
+margin_bottom = 107.0
+custom_constants/separation = 75
+alignment = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LevelSelectButton" parent="TutorialLevels" instance=ExtResource( 1 )]
+margin_left = 12.0
+margin_right = 44.0
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
 level = -2
 path = "res://Levels/Tutorials/Tutorial1.tscn"
 
-[node name="LevelSelectButton2" parent="." instance=ExtResource( 1 )]
-margin_left = 226.0
-margin_top = 75.0
-margin_right = 266.0
-margin_bottom = 115.0
+[node name="LevelSelectButton2" parent="TutorialLevels" instance=ExtResource( 1 )]
+margin_left = 119.0
+margin_right = 151.0
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
 level = -1
 path = "res://Levels/Tutorials/Tutorial2.tscn"
 
-[node name="LevelSelectButton3" parent="." instance=ExtResource( 1 )]
-margin_left = 346.0
-margin_top = 75.0
-margin_right = 386.0
-margin_bottom = 115.0
+[node name="LevelSelectButton3" parent="TutorialLevels" instance=ExtResource( 1 )]
+margin_left = 226.0
+margin_right = 258.0
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+path = "res://Levels/Tutorials/Tutorial3.tscn"
+
+[node name="Levels" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -176.5
+margin_top = -11.0
+margin_right = 176.5
+margin_bottom = 78.0
+custom_constants/vseparation = 25
+custom_constants/hseparation = 75
+columns = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LevelSelectButton4" parent="Levels" instance=ExtResource( 1 )]
+level = 1
+path = "res://Levels/Levels/Level1.tscn"
+
+[node name="LevelSelectButton5" parent="Levels" instance=ExtResource( 1 )]
+margin_left = 107.0
+margin_right = 139.0
+level = 2
+path = "res://Levels/Levels/Level2.tscn"
+
+[node name="LevelSelectButton12" parent="Levels" instance=ExtResource( 1 )]
+margin_left = 214.0
+margin_right = 246.0
+level = 3
+path = "res://Levels/Levels/Level3.tscn"
+
+[node name="LevelSelectButton11" parent="Levels" instance=ExtResource( 1 )]
+margin_left = 321.0
+margin_right = 353.0
+level = 4
+path = "res://Levels/Levels/Level4.tscn"
+
+[node name="LevelSelectButton10" parent="Levels" instance=ExtResource( 1 )]
+margin_top = 57.0
+margin_bottom = 89.0
+level = 5
+path = "res://Levels/Levels/Level5.tscn"
+
+[node name="LevelSelectButton9" parent="Levels" instance=ExtResource( 1 )]
+margin_left = 107.0
+margin_top = 57.0
+margin_right = 139.0
+margin_bottom = 89.0
+level = 6
+path = "res://Levels/Levels/Level6.tscn"
+
+[node name="LevelSelectButton8" parent="Levels" instance=ExtResource( 1 )]
+margin_left = 214.0
+margin_top = 57.0
+margin_right = 246.0
+margin_bottom = 89.0
+level = 7
+path = "res://Levels/Levels/Level7.tscn"
+
+[node name="LevelSelectButton7" parent="Levels" instance=ExtResource( 1 )]
+margin_left = 321.0
+margin_top = 57.0
+margin_right = 353.0
+margin_bottom = 89.0
+level = 8
+path = "res://Levels/Levels/Level8.tscn"
