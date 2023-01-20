@@ -21,6 +21,7 @@ texture = ExtResource( 1 )
 layer = 2
 
 [node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = -28.0
 margin_top = -26.0
 margin_right = 27.0

@@ -5,8 +5,8 @@ onready var sound_slider = $SoundSlider
 
 func _ready():
 	var middle = (music_slider.max_value + music_slider.min_value) / 2
-	SoundManager.set_music_volume(middle)
-	SoundManager.set_sound_volume(middle)
+	SoundManager.set_music_volume(-80)
+	SoundManager.set_sound_volume(-80)
 	music_slider.value = middle
 	sound_slider.value = middle
 	

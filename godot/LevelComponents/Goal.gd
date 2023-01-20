@@ -1,7 +1,7 @@
 extends Area2D
 
 onready var stars = $Stars
-export (int) var goal_num = 3
+export (int) var goal_num = 1
 
 var num = 0
 
@@ -10,7 +10,7 @@ func _process(delta):
 		GameManager.level_info[GameManager.current_level]["complete"] = true
 		GameManager.level_info[GameManager.current_level]["stars"] = max(GameManager.level_info[GameManager.current_level]["stars"], 3 - stars.get_child_count())
 		if GameManager.current_level == 8:
-			pass
+			Transitions.change_screen("res://GameOver.tscn")
 		else:
 			GameManager.level_info[GameManager.current_level + 1]["unlocked"] = true
-		get_tree().change_scene("res://Levels/LevelSelect.tscn")
+		Transitions.change_screen("res://Levels/LevelSelect.tscn")

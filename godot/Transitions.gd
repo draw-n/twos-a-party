@@ -1,16 +1,24 @@
-extends Node
+extends CanvasLayer
 
+signal scene_changed()
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	control.rect_global_position = Vector2(0, -600)
 
+onready var control = $Control
+onready var tween = $Tween
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func change_screen(path, delay = 10):
+	change_location(control, Vector2(0, -600), Vector2(0, 0))
+	
+	if get_tree().change_scene(path) == OK:
+		yield(get_tree().create_timer(delay), "timeout")
+		change_location(control, Vector2(0, 0), Vector2(0, 600))
+		emit_signal("scene_changed")
+		control.rect_global_position = Vector2(0,-600)
+		control.hide()
+
+func change_location(node, start, end):
+	tween.set_active(true)
+	tween.interpolate_property(node, "rect_global_position", start, end, 0.5, Tween.TRANS_LINEAR)
+	yield(tween, "tween_completed")

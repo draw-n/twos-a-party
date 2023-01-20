@@ -33,4 +33,4 @@ func _ready():
 
 func _on_LevelSelectButton_pressed():
 	GameManager.current_level = level
-	get_tree().change_scene(path)
+	Transitions.change_screen(path)

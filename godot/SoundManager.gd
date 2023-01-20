@@ -13,8 +13,8 @@ var available_sounds = {
 
 func _ready():
 	play_music("november")
-	set_music_volume(0)
-	set_sound_volume(0)
+	set_music_volume(-80)
+	set_sound_volume(-80)
 
 func play_sound(sound):
 	sound_player.stream = available_sounds[sound]
