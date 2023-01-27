@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 GameManager="*res://GameManager.tscn"
 SoundManager="*res://SoundManager.tscn"
 Transitions="*res://Transitions.tscn"
+Options="*res://Options.tscn"
 
 [display]
 
