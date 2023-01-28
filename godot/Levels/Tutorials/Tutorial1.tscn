@@ -8,7 +8,7 @@
 [ext_resource path="res://LevelComponents/Spring.tscn" type="PackedScene" id=6]
 [ext_resource path="res://LevelComponents/Flower.tscn" type="PackedScene" id=7]
 [ext_resource path="res://LevelComponents/UI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://LevelComponents/Gate.tscn" type="PackedScene" id=9]
+[ext_resource path="res://LevelComponents/KeyGate.tscn" type="PackedScene" id=9]
 [ext_resource path="res://LevelComponents/LeverGate.tscn" type="PackedScene" id=10]
 [ext_resource path="res://LevelComponents/Lever.tscn" type="PackedScene" id=11]
 
@@ -17,26 +17,28 @@
 [node name="Spring" parent="." instance=ExtResource( 6 )]
 position = Vector2( 380, 153 )
 
-[node name="Gate" parent="." instance=ExtResource( 9 )]
-position = Vector2( 432, 32 )
+[node name="KeyGate" parent="." instance=ExtResource( 9 )]
+position = Vector2( 432, 31 )
 rotation = 1.5708
+location_one = Vector2( 432, 31 )
+location_two = Vector2( 432, -34 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 240, 176 )
 
 [node name="LeverGate" parent="." instance=ExtResource( 10 )]
-location_one = Vector2( 240, 176 )
-location_two = Vector2( 240, 112 )
 
-[node name="Gate" parent="LeverGate" index="0"]
-position = Vector2( 240, 176 )
+[node name="ButtonGate" parent="LeverGate" index="0"]
+position = Vector2( 240, 186 )
 rotation = 1.5708
+location_one = Vector2( 240, 186 )
+location_two = Vector2( 240, 118 )
 
-[node name="Lever" parent="LeverGate/Levers" index="0"]
-position = Vector2( 176, 200 )
+[node name="Lever" parent="LeverGate/Buttons" index="0"]
+position = Vector2( 482, 176 )
 
-[node name="Lever2" parent="LeverGate/Levers" index="1" instance=ExtResource( 11 )]
-position = Vector2( 480, 168 )
+[node name="Lever2" parent="LeverGate/Buttons" index="1" instance=ExtResource( 11 )]
+position = Vector2( 183, 208 )
 
 [node name="Flowers" type="Node2D" parent="."]
 
@@ -62,7 +64,6 @@ CHARACTER_SPRITE = ExtResource( 2 )
 
 [node name="Goal" parent="." instance=ExtResource( 3 )]
 position = Vector2( 480, 32 )
-goal_num = 1
 
 [node name="Star" parent="Goal/Stars" index="0"]
 position = Vector2( 320, 256 )
@@ -75,7 +76,6 @@ position = Vector2( 32, 208 )
 position = Vector2( 32, 64 )
 
 [node name="UI" parent="." instance=ExtResource( 8 )]
-visible = false
 
 [node name="Key" parent="." instance=ExtResource( 5 )]
 position = Vector2( 112, 128 )

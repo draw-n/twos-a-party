@@ -29,8 +29,9 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var collision_shape2D = $CollisionShape2D
 onready var timer = $Timer
+onready var key_sprite = $Key
 
-var keys = []
+var key = null
 var state = SIT
 var motion = Vector2.ZERO
 var started = false
@@ -52,6 +53,10 @@ func get_gravity():
 	return JUMP_GRAVITY if motion.y < 0.0 else FALL_GRAVITY
 
 func _physics_process(delta):
+	if key != null:
+		key_sprite.visible = true
+	else:
+		key_sprite.visible = false
 	indicator.visible = get_selected()
 	var x_input = 0
 	if selected:

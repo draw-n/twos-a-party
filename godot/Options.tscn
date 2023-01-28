@@ -86,5 +86,13 @@ text = "Music"
 align = 1
 valign = 1
 
+[node name="Exit" type="Button" parent="."]
+margin_left = 348.0
+margin_top = 35.0
+margin_right = 368.0
+margin_bottom = 55.0
+text = "X"
+
 [connection signal="value_changed" from="Control/ColorRect/VBoxContainer/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="Control/ColorRect/VBoxContainer/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

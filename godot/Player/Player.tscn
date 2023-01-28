@@ -1,8 +1,9 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/player_calico_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://Player/player_indictator_spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://LevelComponents/key_spritesheet.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 9, 8 )
@@ -422,5 +423,10 @@ parameters/StandToSit/blend_position = 0
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="Key" type="Sprite" parent="."]
+visible = false
+position = Vector2( -1, -30 )
+texture = ExtResource( 4 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
