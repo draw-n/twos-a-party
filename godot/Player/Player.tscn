@@ -1,9 +1,9 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/player_calico_spritesheet.png" type="Texture" id=2]
-[ext_resource path="res://Player/player_indictator_spritesheet.png" type="Texture" id=3]
 [ext_resource path="res://LevelComponents/key_spritesheet.png" type="Texture" id=4]
+[ext_resource path="res://Player/selected.tres" type="Material" id=5]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 9, 8 )
@@ -225,18 +225,6 @@ tracks/0/keys = {
 "values": [ 38 ]
 }
 
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 7, 7 )
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ SubResource( 3 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
 [sub_resource type="AnimationNodeAnimation" id=64]
 animation = "JumpRight"
 
@@ -370,16 +358,16 @@ graph_offset = Vector2( 0, -56.6073 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 1, 0 )
 collision_layer = 2
-collision_mask = 3
+collision_mask = 2051
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -2 )
+material = ExtResource( 5 )
+position = Vector2( -1, -2 )
 texture = ExtResource( 2 )
 hframes = 9
 vframes = 10
@@ -403,11 +391,6 @@ anims/StandRight = SubResource( 8 )
 anims/StandToSitLeft = SubResource( 42 )
 anims/StandToSitRight = SubResource( 27 )
 
-[node name="Indicator" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -20 )
-frames = SubResource( 4 )
-playing = true
-
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 10 )
 anim_player = NodePath("../AnimationPlayer")
@@ -426,7 +409,8 @@ one_shot = true
 
 [node name="Key" type="Sprite" parent="."]
 visible = false
-position = Vector2( -1, -30 )
+position = Vector2( -1, -19 )
 texture = ExtResource( 4 )
+hframes = 8
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

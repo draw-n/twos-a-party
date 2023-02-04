@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+var reset_check = true
+
+onready var controls = $Controls
 onready var music_slider = $Control/ColorRect/VBoxContainer/MusicSlider
 onready var sound_slider = $Control/ColorRect/VBoxContainer/SoundSlider
 
@@ -9,15 +12,10 @@ onready var sound_slider = $Control/ColorRect/VBoxContainer/SoundSlider
 #		get_tree().set("paused", false)
 
 func _ready():
-	if SoundManager.music_volume == null and SoundManager.sound_volume == null:
-		var middle = (music_slider.max_value + music_slider.min_value) / 2
-		SoundManager.set_music_volume(middle)
-		SoundManager.set_sound_volume(middle)
-		music_slider.value = middle
-		sound_slider.value = middle
-	else:
-		music_slider.value = SoundManager.music_volume
-		sound_slider.value = SoundManager.sound_volume
+	self.hide()
+	controls.hide()
+	music_slider.value = SoundManager.music_volume
+	sound_slider.value = SoundManager.sound_volume
 	
 
 func _on_MusicSlider_value_changed(value):
@@ -34,3 +32,7 @@ func change_visible(show):
 func _on_Exit_pressed():
 	change_visible(false)
 	get_tree().set("paused", false)
+
+
+func _on_Controls_pressed():
+	controls.show()

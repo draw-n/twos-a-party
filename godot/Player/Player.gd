@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const SELECTED_SHADER = preload("res://Player/selected.tres")
+
 export (bool) var selected setget set_selected, get_selected
 
 enum {
@@ -24,7 +26,6 @@ onready var JUMP_VELOCITY = ((2.0 * JUMP_HEIGHT) / JUMP_TIME_TO_PEAK) * -1.0
 onready var JUMP_GRAVITY = ((-2.0 * JUMP_HEIGHT) / (JUMP_TIME_TO_PEAK * JUMP_TIME_TO_PEAK)) * -1.0
 onready var FALL_GRAVITY = ((-2.0 * JUMP_HEIGHT) / (JUMP_TIME_TO_DESCEND * JUMP_TIME_TO_DESCEND)) * -1.0
 onready var sprite = $Sprite
-onready var indicator = $Indicator
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 onready var collision_shape2D = $CollisionShape2D
@@ -54,10 +55,14 @@ func get_gravity():
 
 func _physics_process(delta):
 	if key != null:
+		key_sprite.frame = key
 		key_sprite.visible = true
 	else:
 		key_sprite.visible = false
-	indicator.visible = get_selected()
+	if get_selected():
+		sprite.material = SELECTED_SHADER
+	else:
+		sprite.material = null
 	var x_input = 0
 	if selected:
 		x_input = Input.get_action_raw_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -101,13 +106,6 @@ func _physics_process(delta):
 		started = false
 		state = STAND
 		animationState.travel("Jump")
-
-		#animationPlayer.play("Idle")
-	#	if double_jump == true:
-	#		if Input.is_action_just_pressed("ui_up"):
-	#			motion.y = -JUMP_FORCE
-	#			double_jump = false
-		#animationPlayer.play("Jump")
 
 		if Input.is_action_just_released("ui_up") and motion.y < JUMP_VELOCITY/2:
 					motion.y = JUMP_VELOCITY/2

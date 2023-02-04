@@ -4,12 +4,15 @@ export (int) var id
 export (Vector2) var location_one
 export (Vector2) var location_two
 
-var at_location_one = true
-
 onready var tween = $Tween
+onready var sprite = $Sprite
+
+var at_location_one = true
 
 func _ready():
 	self.global_position = location_one
+	sprite.frame = id
+	
 
 func change_gate():
 	match at_location_one:
@@ -22,7 +25,6 @@ func change_gate():
 
 
 func change_location(start, end):
-	print("changing location for tween")
 	tween.set_active(true)
 	tween.interpolate_property(self, "global_position", start, end, 0.5, Tween.TRANS_LINEAR)
 

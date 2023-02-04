@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Levels/LevelSelectButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://LevelComponents/ui/options_exit_hover.png" type="Texture" id=2]
 [ext_resource path="res://Levels/LevelSelectButtons/tutorial_pressed.png" type="Texture" id=3]
+[ext_resource path="res://LevelComponents/ui/options_exit.png" type="Texture" id=4]
+[ext_resource path="res://Levels/Exit.gd" type="Script" id=5]
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -115,3 +118,13 @@ margin_right = 353.0
 margin_bottom = 89.0
 level = 8
 path = "res://Levels/Levels/Level8.tscn"
+
+[node name="Exit" type="TextureButton" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[connection signal="pressed" from="Exit" to="Exit" method="_on_Exit_pressed"]

@@ -4,7 +4,7 @@
 [ext_resource path="res://LevelComponents/Goal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://LevelComponents/TileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://LevelComponents/water/Water.tscn" type="PackedScene" id=4]
-[ext_resource path="res://LevelComponents/UI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://LevelComponents/LevelGoals.tscn" type="PackedScene" id=6]
 
 [node name="BaseLevel" type="Node2D"]
 
@@ -17,4 +17,12 @@ tile_data = PoolIntArray(  )
 
 [node name="Goal" parent="." instance=ExtResource( 2 )]
 
-[node name="UI" parent="." instance=ExtResource( 5 )]
+[node name="LevelGoals" parent="." instance=ExtResource( 6 )]
+
+[node name="Goal" parent="LevelGoals/Goals" index="0" instance=ExtResource( 2 )]
+
+[node name="Goal2" parent="LevelGoals/Goals" index="1" instance=ExtResource( 2 )]
+
+[node name="Goal3" parent="LevelGoals/Goals" index="2" instance=ExtResource( 2 )]
+
+[editable path="LevelGoals"]
