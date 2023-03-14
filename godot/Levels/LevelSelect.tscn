@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Levels/LevelSelectButton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://LevelComponents/ui/options_exit_hover.png" type="Texture" id=2]
+[ext_resource path="res://LevelComponents/ui/back_hover.png" type="Texture" id=2]
 [ext_resource path="res://Levels/LevelSelectButtons/tutorial_pressed.png" type="Texture" id=3]
-[ext_resource path="res://LevelComponents/ui/options_exit.png" type="Texture" id=4]
+[ext_resource path="res://LevelComponents/ui/back.png" type="Texture" id=4]
 [ext_resource path="res://Levels/Exit.gd" type="Script" id=5]
 
 [node name="LevelSelect" type="Control"]
@@ -84,44 +84,44 @@ level = 3
 path = "res://Levels/Levels/Level3.tscn"
 
 [node name="LevelSelectButton11" parent="Levels" instance=ExtResource( 1 )]
+visible = false
 margin_left = 321.0
 margin_right = 353.0
 level = 4
 path = "res://Levels/Levels/Level4.tscn"
 
 [node name="LevelSelectButton10" parent="Levels" instance=ExtResource( 1 )]
-margin_top = 57.0
-margin_bottom = 89.0
+visible = false
+margin_left = 321.0
+margin_right = 353.0
 level = 5
 path = "res://Levels/Levels/Level5.tscn"
 
 [node name="LevelSelectButton9" parent="Levels" instance=ExtResource( 1 )]
-margin_left = 107.0
-margin_top = 57.0
-margin_right = 139.0
-margin_bottom = 89.0
+visible = false
+margin_left = 321.0
+margin_right = 353.0
 level = 6
 path = "res://Levels/Levels/Level6.tscn"
 
 [node name="LevelSelectButton8" parent="Levels" instance=ExtResource( 1 )]
-margin_left = 214.0
-margin_top = 57.0
-margin_right = 246.0
-margin_bottom = 89.0
+visible = false
+margin_left = 321.0
+margin_right = 353.0
 level = 7
 path = "res://Levels/Levels/Level7.tscn"
 
 [node name="LevelSelectButton7" parent="Levels" instance=ExtResource( 1 )]
 margin_left = 321.0
-margin_top = 57.0
 margin_right = 353.0
-margin_bottom = 89.0
 level = 8
 path = "res://Levels/Levels/Level8.tscn"
 
 [node name="Exit" type="TextureButton" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 29.0
+margin_bottom = 29.0
 texture_normal = ExtResource( 4 )
 texture_hover = ExtResource( 2 )
 texture_focused = ExtResource( 2 )

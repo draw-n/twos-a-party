@@ -36,3 +36,7 @@ func _on_Exit_pressed():
 
 func _on_Controls_pressed():
 	controls.show()
+
+
+func _on_MainMenu_pressed():
+	Transitions.change_screen("res://MainMenu.tscn")

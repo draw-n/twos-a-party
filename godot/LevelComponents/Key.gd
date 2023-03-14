@@ -8,5 +8,6 @@ func _ready():
 
 func _on_Key_body_entered(body):
 	if body.key == null:
-		body.key = id
+		SoundManager.play_sound("key")
+		body.set_key(id)
 		queue_free()

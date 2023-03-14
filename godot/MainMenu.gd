@@ -2,6 +2,9 @@ extends Control
 
 onready var options = $Options
 
+func _ready():
+	SoundManager.play_music("main")
+
 func _on_Play_pressed():
 	Transitions.change_screen("res://Levels/LevelSelect.tscn")
 

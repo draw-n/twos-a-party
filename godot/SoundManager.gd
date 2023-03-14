@@ -7,17 +7,20 @@ onready var music_player = $MusicPlayer
 onready var sound_player = $SoundPlayer
 
 var available_music = {
-	"november": preload("res://Audio/Music/Kai Engel - November.mp3")
+	"main": preload("res://Audio/Music/MainTheme.wav"),
+	"happy": preload("res://Audio/Music/happy.wav")
 }
 
 var available_sounds = {
-	
+	"key": preload("res://Audio/Sounds/pickupKey.wav"),
+	"select": preload("res://Audio/Sounds/blipSelect.wav"),
+	"coin": preload("res://Audio/Sounds/pickupCoin.wav"),
+	"jump": preload("res://Audio/Sounds/jump.wav")
 }
 
 func _ready():
 	set_music_volume(-20)
-	set_sound_volume(-20)
-	play_music("november")
+	set_sound_volume(-30)
 
 func play_sound(sound):
 	sound_player.stream = available_sounds[sound]

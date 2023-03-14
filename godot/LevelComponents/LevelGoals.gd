@@ -21,3 +21,4 @@ func _process(delta):
 		else:
 			GameManager.level_info[GameManager.current_level + 1]["unlocked"] = true
 			Transitions.change_screen("res://Levels/LevelSelect.tscn")
+			SoundManager.play_music("main")

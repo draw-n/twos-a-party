@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Levels/LevelSelectButton.gd" type="Script" id=1]
 [ext_resource path="res://Levels/LevelSelectButtons/tutorial_disabled.png" type="Texture" id=2]
-[ext_resource path="res://LevelComponents/coin_spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://LevelComponents/ui/single_coin.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/rainyhearts.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Levels/LevelSelectButtons/tutorial_normal.png" type="Texture" id=5]
 [ext_resource path="res://Levels/LevelSelectButtons/tutorial_pressed.png" type="Texture" id=6]

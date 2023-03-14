@@ -2,8 +2,7 @@
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/player_calico_spritesheet.png" type="Texture" id=2]
-[ext_resource path="res://LevelComponents/key_spritesheet.png" type="Texture" id=4]
-[ext_resource path="res://Player/selected.tres" type="Material" id=5]
+[ext_resource path="res://LevelComponents/ui/key_indicator.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 9, 8 )
@@ -42,6 +41,22 @@ tracks/0/keys = {
 "values": [ 28 ]
 }
 
+[sub_resource type="Animation" id=76]
+resource_name = "KeyFade"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Key:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [sub_resource type="Animation" id=9]
 length = 0.001
 tracks/0/type = "value"
@@ -55,6 +70,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Key:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Key:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=37]
@@ -366,8 +405,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-material = ExtResource( 5 )
-position = Vector2( -1, -2 )
+position = Vector2( -2, -2 )
 texture = ExtResource( 2 )
 hframes = 9
 vframes = 10
@@ -379,6 +417,7 @@ shape = SubResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/JumpLeft = SubResource( 38 )
 anims/JumpRight = SubResource( 5 )
+anims/KeyFade = SubResource( 76 )
 anims/RESET = SubResource( 9 )
 anims/RunLeft = SubResource( 37 )
 anims/RunRight = SubResource( 6 )
@@ -408,9 +447,8 @@ wait_time = 3.0
 one_shot = true
 
 [node name="Key" type="Sprite" parent="."]
-visible = false
-position = Vector2( -1, -19 )
-texture = ExtResource( 4 )
+position = Vector2( 0, -19 )
+texture = ExtResource( 3 )
 hframes = 8
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

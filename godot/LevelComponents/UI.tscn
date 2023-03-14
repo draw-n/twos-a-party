@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://LevelComponents/UI.gd" type="Script" id=1]
 [ext_resource path="res://LevelComponents/ui/rewind.png" type="Texture" id=2]
@@ -6,6 +6,12 @@
 [ext_resource path="res://LevelComponents/ui/pause.png" type="Texture" id=4]
 [ext_resource path="res://Fonts/rainyhearts.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://LevelComponents/ui/ui_bg.png" type="Texture" id=6]
+[ext_resource path="res://LevelComponents/ui/calico_normal.png" type="Texture" id=7]
+[ext_resource path="res://LevelComponents/ui/calico_pressed.png" type="Texture" id=8]
+[ext_resource path="res://LevelComponents/ui/snow_normal.png" type="Texture" id=9]
+[ext_resource path="res://LevelComponents/ui/snow_pressed.png" type="Texture" id=10]
+[ext_resource path="res://LevelComponents/ui/dark_normal.png" type="Texture" id=11]
+[ext_resource path="res://LevelComponents/ui/dark_pressed.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -26,25 +32,28 @@ margin_right = 60.0
 margin_bottom = 24.0
 texture = ExtResource( 6 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -56.0
+margin_left = -54.5
 margin_top = 3.0
-margin_right = 56.0
-margin_bottom = 23.0
+margin_right = 54.5
+margin_bottom = 43.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/VBoxContainer"]
+margin_right = 109.0
+margin_bottom = 19.0
 custom_constants/separation = 10
 alignment = 1
 
-[node name="Redo" type="TextureButton" parent="Control/ColorRect/HBoxContainer"]
-margin_left = 1.0
-margin_right = 17.0
-margin_bottom = 20.0
+[node name="Redo" type="TextureButton" parent="Control/ColorRect/VBoxContainer/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 19.0
 texture_normal = ExtResource( 2 )
 
-[node name="Timer" type="Label" parent="Control/ColorRect/HBoxContainer"]
-margin_left = 27.0
-margin_right = 84.5
+[node name="Timer" type="Label" parent="Control/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 26.0
+margin_right = 83.5
 margin_bottom = 19.0
 rect_min_size = Vector2( 57.5, 19 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -53,13 +62,50 @@ text = "1:10"
 align = 1
 valign = 1
 
-[node name="Pause" type="TextureButton" parent="Control/ColorRect/HBoxContainer"]
-margin_left = 94.0
-margin_right = 110.0
-margin_bottom = 20.0
+[node name="Pause" type="TextureButton" parent="Control/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 93.0
+margin_right = 109.0
+margin_bottom = 19.0
 texture_normal = ExtResource( 4 )
 
-[node name="Options" parent="." instance=ExtResource( 3 )]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/ColorRect/VBoxContainer"]
+margin_top = 23.0
+margin_right = 109.0
+margin_bottom = 39.0
+alignment = 1
 
-[connection signal="pressed" from="Control/ColorRect/HBoxContainer/Redo" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="Control/ColorRect/HBoxContainer/Pause" to="." method="_on_Pause_pressed"]
+[node name="Cat1" type="TextureButton" parent="Control/ColorRect/VBoxContainer/HBoxContainer2"]
+margin_left = 2.0
+margin_right = 34.0
+margin_bottom = 16.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+
+[node name="Cat2" type="TextureButton" parent="Control/ColorRect/VBoxContainer/HBoxContainer2"]
+margin_left = 38.0
+margin_right = 70.0
+margin_bottom = 16.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+
+[node name="Cat3" type="TextureButton" parent="Control/ColorRect/VBoxContainer/HBoxContainer2"]
+margin_left = 74.0
+margin_right = 106.0
+margin_bottom = 16.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+
+[node name="Options" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[connection signal="pressed" from="Control/ColorRect/VBoxContainer/HBoxContainer/Redo" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/ColorRect/VBoxContainer/HBoxContainer/Pause" to="." method="_on_Pause_pressed"]
+[connection signal="pressed" from="Control/ColorRect/VBoxContainer/HBoxContainer2/Cat1" to="." method="_on_Cat1_pressed"]
+[connection signal="pressed" from="Control/ColorRect/VBoxContainer/HBoxContainer2/Cat2" to="." method="_on_Cat2_pressed"]
+[connection signal="pressed" from="Control/ColorRect/VBoxContainer/HBoxContainer2/Cat3" to="." method="_on_Cat3_pressed"]

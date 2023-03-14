@@ -102,8 +102,8 @@ custom_styles/slider = SubResource( 3 )
 custom_styles/grabber_area_highlight = SubResource( 4 )
 custom_styles/grabber_area = SubResource( 5 )
 min_value = -60.0
-max_value = 20.0
-value = -20.0
+max_value = 0.0
+value = -30.0
 
 [node name="Label" type="Label" parent="Control/ColorRect"]
 anchor_left = 0.5
@@ -145,6 +145,7 @@ align = 1
 valign = 1
 
 [node name="Controls" type="TextureButton" parent="Control/ColorRect"]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -154,6 +155,17 @@ margin_top = -57.0
 margin_right = 11.0
 margin_bottom = -35.0
 texture_normal = ExtResource( 5 )
+
+[node name="MainMenu" type="Button" parent="Control/ColorRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -41.5
+margin_top = -57.0
+margin_right = 41.5
+margin_bottom = -37.0
+text = "Main Menu"
 
 [node name="Exit" type="TextureButton" parent="."]
 margin_left = 348.0
@@ -165,8 +177,10 @@ texture_hover = ExtResource( 6 )
 texture_focused = ExtResource( 6 )
 
 [node name="Controls" parent="." instance=ExtResource( 8 )]
+visible = false
 
 [connection signal="value_changed" from="Control/ColorRect/VBoxContainer/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
-[connection signal="value_changed" from="Control/ColorRect/VBoxContainer/SoundSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="Control/ColorRect/VBoxContainer/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
 [connection signal="pressed" from="Control/ColorRect/Controls" to="." method="_on_Controls_pressed"]
+[connection signal="pressed" from="Control/ColorRect/MainMenu" to="." method="_on_MainMenu_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

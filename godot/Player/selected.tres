@@ -4,7 +4,7 @@
 code = "shader_type canvas_item;
 
 uniform vec4 color : hint_color = vec4(1.0);
-uniform float width : hint_range(0, 10) = 1.0;
+uniform float width : hint_range(0, 10) = 2.0;
 uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
 uniform bool inside = false;
 uniform bool add_margins = true; // only useful when inside is false
@@ -67,7 +67,7 @@ void fragment() {
 [resource]
 shader = SubResource( 76 )
 shader_param/color = Color( 1, 1, 1, 1 )
-shader_param/width = 1.0
+shader_param/width = 2.0
 shader_param/pattern = 0
 shader_param/inside = false
-shader_param/add_margins = true
+shader_param/add_margins = false

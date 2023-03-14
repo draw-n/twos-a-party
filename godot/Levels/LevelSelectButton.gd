@@ -34,3 +34,4 @@ func _ready():
 func _on_LevelSelectButton_pressed():
 	GameManager.current_level = level
 	Transitions.change_screen(path)
+	SoundManager.play_music("happy")

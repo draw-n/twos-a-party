@@ -1,7 +1,7 @@
 extends Node
 
-var current_level = -2;
-var selected_players = [] setget set_selected_players, get_selected_players
+var current_level = 3;
+var selected_players = [1, 2] setget set_selected_players, get_selected_players
 
 func set_selected_players(list):
 	selected_players = list

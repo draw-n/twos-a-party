@@ -32,4 +32,4 @@ func change_location(start, end):
 func _on_Detection_body_entered(body):
 	if id == body.key:
 		change_gate()
-		body.key = null
+		body.set_key(null)
