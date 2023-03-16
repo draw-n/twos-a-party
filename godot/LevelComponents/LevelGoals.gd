@@ -8,7 +8,6 @@ onready var ui = $UI
 #	print(GameManager.level_info)
 
 func _process(delta):
-	
 	var goal_sum = 0
 	for i in goals.get_children():
 		goal_sum += int(i.goal_reached)
@@ -16,7 +15,7 @@ func _process(delta):
 		GameManager.level_info[GameManager.current_level]["complete"] = true
 		GameManager.level_info[GameManager.current_level]["stars"] = max(GameManager.level_info[GameManager.current_level]["stars"], 3 - stars.get_child_count())
 		GameManager.level_info[GameManager.current_level]["fastest_time"] = max(GameManager.level_info[GameManager.current_level]["fastest_time"], ui.time_elapsed)
-		if GameManager.current_level == 8:
+		if GameManager.current_level == 2:
 			Transitions.change_screen("res://GameOver.tscn")
 		else:
 			GameManager.level_info[GameManager.current_level + 1]["unlocked"] = true

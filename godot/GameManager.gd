@@ -49,35 +49,6 @@ var level_info = {
 		"fastest_time": 0.0,
 		"stars": 0
 	},
-	4: {
-		"complete": false,
-		"unlocked": false,
-		"fastest_time": 0.0,
-		"stars": 0
-	},
-	5: {
-		"complete": false,
-		"unlocked": false,
-		"fastest_time": 0.0,
-		"stars": 0
-	},
-	6: {
-		"complete": false,
-		"unlocked": false,
-		"fastest_time": 0.0,
-		"stars": 0
-	},
-	7: {
-		"complete": false,
-		"unlocked": false,
-		"fastest_time": 0.0,
-		"stars": 0
-	},
-	8: {
-		"complete": false,
-		"unlocked": false,
-		"fastest_time": 0.0,
-		"stars": 0
-	}
+
 }
 

@@ -13,10 +13,12 @@ onready var label = $Label
 onready var stars = $HBoxContainer
 
 func _ready():
-	if level <= 0:
+	if level == 0:
+		label.set("test", str(1))
+	elif level <= -1:
 		label.set("text", str(level + 3))
 	else:
-		label.set("text", str(level))
+		label.set("text", str(level +1))
 
 	self.set("texture_normal", normal_texture);
 	self.set("texture_pressed", pressed_texture);
