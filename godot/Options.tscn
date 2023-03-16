@@ -144,28 +144,19 @@ text = "Music"
 align = 1
 valign = 1
 
-[node name="Controls" type="TextureButton" parent="Control/ColorRect"]
-visible = false
+[node name="Controls" type="Button" parent="Control/ColorRect"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -11.0
-margin_top = -57.0
-margin_right = 11.0
-margin_bottom = -35.0
-texture_normal = ExtResource( 5 )
-
-[node name="MainMenu" type="Button" parent="Control/ColorRect"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -41.5
-margin_top = -57.0
-margin_right = 41.5
-margin_bottom = -37.0
-text = "Main Menu"
+margin_left = -68.0
+margin_top = -60.0
+margin_right = 68.0
+margin_bottom = -30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Controls"
+flat = true
 
 [node name="Exit" type="TextureButton" parent="."]
 margin_left = 348.0
@@ -182,5 +173,4 @@ visible = false
 [connection signal="value_changed" from="Control/ColorRect/VBoxContainer/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="Control/ColorRect/VBoxContainer/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
 [connection signal="pressed" from="Control/ColorRect/Controls" to="." method="_on_Controls_pressed"]
-[connection signal="pressed" from="Control/ColorRect/MainMenu" to="." method="_on_MainMenu_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

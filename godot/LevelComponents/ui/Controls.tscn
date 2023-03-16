@@ -1,20 +1,40 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://LevelComponents/ui/options_exit.png" type="Texture" id=1]
-[ext_resource path="res://LevelComponents/ui/options_exit_hover.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Minecraft.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://LevelComponents/ui/Controls.gd" type="Script" id=3]
 [ext_resource path="res://LevelComponents/ui/controls_popup.png" type="Texture" id=4]
+[ext_resource path="res://LevelComponents/ui/right.png" type="Texture" id=5]
+[ext_resource path="res://LevelComponents/ui/q.png" type="Texture" id=6]
+[ext_resource path="res://LevelComponents/ui/up.png" type="Texture" id=7]
+[ext_resource path="res://LevelComponents/ui/left.png" type="Texture" id=8]
+[ext_resource path="res://LevelComponents/ui/p.png" type="Texture" id=9]
+[ext_resource path="res://LevelComponents/ui/r.png" type="Texture" id=10]
+[ext_resource path="res://Fonts/rainyhearts.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://LevelComponents/ui/options_exit_hover.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 11 )
 
 [node name="Controls" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.25098 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="PopUp" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -22,20 +42,23 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -111.0
-margin_top = -74.5
+margin_top = -88.0
 margin_right = 111.0
-margin_bottom = 74.5
+margin_bottom = 92.0
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="PopUp"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -26.5
-margin_top = 5.5
-margin_right = 26.5
-margin_bottom = 19.5
+margin_left = -32.5
+margin_top = 12.5
+margin_right = 32.5
+margin_bottom = 28.5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Controls"
+align = 1
+valign = 1
 
 [node name="Exit" type="TextureButton" parent="PopUp"]
 anchor_left = 1.0
@@ -45,58 +68,93 @@ margin_top = 5.5
 margin_right = -8.0
 margin_bottom = 27.5
 texture_normal = ExtResource( 1 )
+texture_hover = ExtResource( 12 )
 
-[node name="Before" type="TextureButton" parent="PopUp"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -22.0
-margin_right = 22.0
-texture_normal = ExtResource( 2 )
+[node name="up" type="TextureRect" parent="."]
+margin_left = 202.0
+margin_top = 197.5
+margin_right = 224.0
+margin_bottom = 219.5
+texture = ExtResource( 10 )
 
-[node name="After" type="TextureButton" parent="PopUp"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -22.0
-margin_top = -22.0
-texture_normal = ExtResource( 2 )
+[node name="left" type="TextureRect" parent="."]
+margin_left = 202.0
+margin_top = 125.5
+margin_right = 224.0
+margin_bottom = 147.5
+texture = ExtResource( 8 )
 
-[node name="Movement" type="GridContainer" parent="PopUp"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -84.0
-margin_top = -34.0
-margin_right = 84.0
-margin_bottom = 34.0
+[node name="right" type="TextureRect" parent="."]
+margin_left = 227.0
+margin_top = 125.5
+margin_right = 249.0
+margin_bottom = 147.5
+texture = ExtResource( 5 )
 
-[node name="UpLeftRight" type="Label" parent="PopUp/Movement"]
-margin_right = 167.0
-margin_bottom = 14.0
+[node name="p" type="TextureRect" parent="."]
+margin_left = 202.0
+margin_top = 101.5
+margin_right = 224.0
+margin_bottom = 123.5
+texture = ExtResource( 7 )
+
+[node name="q" type="TextureRect" parent="."]
+margin_left = 202.0
+margin_top = 149.5
+margin_right = 224.0
+margin_bottom = 171.5
+texture = ExtResource( 6 )
+
+[node name="r" type="TextureRect" parent="."]
+margin_left = 202.0
+margin_top = 173.5
+margin_right = 224.0
+margin_bottom = 195.5
+texture = ExtResource( 9 )
+
+[node name="Movement" type="Label" parent="."]
+margin_left = 256.0
+margin_top = 128.5
+margin_right = 316.0
+margin_bottom = 143.5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Up/Left/Right - movement"
+custom_fonts/font = SubResource( 2 )
+text = "Movement"
 
-[node name="Cat1" type="Label" parent="PopUp/Movement"]
-margin_top = 18.0
-margin_right = 167.0
-margin_bottom = 32.0
+[node name="Movement2" type="Label" parent="."]
+margin_left = 231.0
+margin_top = 152.5
+margin_right = 303.0
+margin_bottom = 167.5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "1 - disables cat 1"
+custom_fonts/font = SubResource( 2 )
+text = "Change Cat"
 
-[node name="Cat2" type="Label" parent="PopUp/Movement"]
-margin_top = 36.0
-margin_right = 167.0
-margin_bottom = 50.0
+[node name="Label3" type="Label" parent="."]
+margin_left = 231.0
+margin_top = 103.5
+margin_right = 271.0
+margin_bottom = 118.5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "2 - disables cat 2"
+custom_fonts/font = SubResource( 2 )
+text = "Jump"
 
-[node name="Cat3" type="Label" parent="PopUp/Movement"]
-margin_top = 54.0
-margin_right = 167.0
-margin_bottom = 68.0
+[node name="Label4" type="Label" parent="."]
+margin_left = 231.0
+margin_top = 176.5
+margin_right = 271.0
+margin_bottom = 191.5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "3 - disables cat 3"
+custom_fonts/font = SubResource( 2 )
+text = "Pause"
+
+[node name="Label5" type="Label" parent="."]
+margin_left = 231.0
+margin_top = 199.5
+margin_right = 271.0
+margin_bottom = 214.5
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Redo"
 
 [connection signal="pressed" from="PopUp/Exit" to="." method="_on_Exit_pressed"]
