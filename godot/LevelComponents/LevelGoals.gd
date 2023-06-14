@@ -1,8 +1,8 @@
 extends Node2D
 
-onready var goals = $Goals
-onready var stars = $Stars
-onready var ui = $UI
+@onready var goals = $Goals
+@onready var stars = $Stars
+@onready var ui = $UI
 
 #func _ready():
 #	print(GameManager.level_info)

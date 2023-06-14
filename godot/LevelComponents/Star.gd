@@ -1,8 +1,8 @@
 extends Area2D
 
-export (float) var jump_height = 0
+@export var jump_height: float = 0
 
-onready var sprite = $Sprite
+@onready var sprite = $Sprite2D
 
 func _ready():
 	sprite.play("default")

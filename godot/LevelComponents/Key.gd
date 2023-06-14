@@ -1,7 +1,7 @@
 extends Area2D
 
-export (int) var id
-onready var sprite = $Sprite
+@export var id: int
+@onready var sprite = $Sprite2D
 
 func _ready():
 	sprite.frame = id

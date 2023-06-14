@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-onready var options = $Options
-onready var count_up_timer = $Control/ColorRect/VBoxContainer/HBoxContainer/Timer
-onready var cat_buttons = $Control/ColorRect/VBoxContainer/HBoxContainer2
+@onready var options = $Options
+@onready var count_up_timer = $Control/ColorRect/VBoxContainer/HBoxContainer/Timer
+@onready var cat_buttons = $Control/ColorRect/VBoxContainer/HBoxContainer2
 
 var time_elapsed = 0.0
 
@@ -11,7 +11,7 @@ func _ready():
 		cat_buttons.queue_free()
 	else: 
 		for i in range(len(cat_buttons.get_children())):
-			cat_buttons.get_children()[i].pressed = !((i + 1) in GameManager.selected_players)
+			cat_buttons.get_children()[i].button_pressed = !((i + 1) in GameManager.selected_players)
 func _input(event):
 	if event.is_action_pressed("ui_pause"):
 		options.change_visible(true)
@@ -26,7 +26,7 @@ func _process(delta):
 	count_up_timer.text = "%02d:%02d" % [minutes, seconds]
 	if GameManager.current_level >= 0:
 		for i in range(len(cat_buttons.get_children())):
-			cat_buttons.get_children()[i].pressed = !((i + 1) in GameManager.selected_players)
+			cat_buttons.get_children()[i].button_pressed = !((i + 1) in GameManager.selected_players)
 	if Input.is_action_just_pressed("switch"):
 		match GameManager.selected_players:
 			[1, 2]:

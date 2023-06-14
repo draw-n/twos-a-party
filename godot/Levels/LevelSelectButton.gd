@@ -1,16 +1,16 @@
 extends TextureButton
 
-export (Texture) var normal_texture;
-export (Texture) var pressed_texture;
-export (Texture) var hover_texture;
-export (Texture) var disabled_texture;
-export (Texture) var focused_texture;
+@export var normal_texture: Texture2D;
+@export var pressed_texture: Texture2D;
+@export var hover_texture: Texture2D;
+@export var disabled_texture: Texture2D;
+@export var focused_texture: Texture2D;
 
-export (int) var level;
-export (String) var path;
+@export var level: int;
+@export var path: String;
 
-onready var label = $Label
-onready var stars = $HBoxContainer
+@onready var label = $Label
+@onready var stars = $HBoxContainer
 
 func _ready():
 	if level == 0:

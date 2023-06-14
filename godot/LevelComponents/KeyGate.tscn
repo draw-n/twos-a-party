@@ -3,7 +3,7 @@
 [ext_resource path="res://LevelComponents/Gate.tscn" type="PackedScene" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 13 )
+size = Vector2( 32, 13 )
 
 [node name="KeyGate" instance=ExtResource( 1 )]
 collision_mask = 0

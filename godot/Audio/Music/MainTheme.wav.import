@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/MainTheme.wav-09508667bdad63dbe349bade6c41338c.sample"
+type="AudioStreamWAV"
+uid="uid://db4jixr1n5jwn"
+path="res://.godot/imported/MainTheme.wav-09508667bdad63dbe349bade6c41338c.sample"
 
 [deps]
 
 source_file="res://Audio/Music/MainTheme.wav"
-dest_files=[ "res://.import/MainTheme.wav-09508667bdad63dbe349bade6c41338c.sample" ]
+dest_files=["res://.godot/imported/MainTheme.wav-09508667bdad63dbe349bade6c41338c.sample"]
 
 [params]
 

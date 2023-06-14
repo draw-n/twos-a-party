@@ -1,8 +1,8 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 const SELECTED_SHADER = preload("res://Player/selected.tres")
 
-export (bool) var selected setget set_selected, get_selected
+@export var selected: bool : get = get_selected, set = set_selected
 
 enum {
 	SIT,
@@ -14,26 +14,28 @@ func set_selected(value):
 
 func get_selected():
 	return selected
-export (Texture) var CHARACTER_SPRITE
-export (int) var ACCELERATION = 500
-export (int) var MAX_SPEED = 90
-export (float) var FRICTION = .25
-export (float) var JUMP_HEIGHT = 50
-export (float) var JUMP_TIME_TO_PEAK = 0.5
-export (float) var JUMP_TIME_TO_DESCEND = 0.4
+	
+@export var CHARACTER_SPRITE: Texture2D
+@export var ACCELERATION: int = 500
+@export var MAX_SPEED: int = 90
+@export var FRICTION: float = .25
+@export var JUMP_HEIGHT: float = 50
+@export var JUMP_TIME_TO_PEAK: float = 0.5
+@export var JUMP_TIME_TO_DESCEND: float = 0.4
 
-onready var JUMP_VELOCITY = ((2.0 * JUMP_HEIGHT) / JUMP_TIME_TO_PEAK) * -1.0
-onready var JUMP_GRAVITY = ((-2.0 * JUMP_HEIGHT) / (JUMP_TIME_TO_PEAK * JUMP_TIME_TO_PEAK)) * -1.0
-onready var FALL_GRAVITY = ((-2.0 * JUMP_HEIGHT) / (JUMP_TIME_TO_DESCEND * JUMP_TIME_TO_DESCEND)) * -1.0
-onready var sprite = $Sprite
-onready var animationPlayer = $AnimationPlayer
-onready var animationTree = $AnimationTree
-onready var animationState = animationTree.get("parameters/playback")
-onready var collision_shape2D = $CollisionShape2D
-onready var timer = $Timer
-onready var key_sprite = $Key
 
-var key = null setget set_key, get_key
+@onready var JUMP_VELOCITY = ((2.0 * JUMP_HEIGHT) / JUMP_TIME_TO_PEAK) * -1.0
+@onready var JUMP_GRAVITY = ((-2.0 * JUMP_HEIGHT) / (JUMP_TIME_TO_PEAK * JUMP_TIME_TO_PEAK)) * -1.0
+@onready var FALL_GRAVITY = ((-2.0 * JUMP_HEIGHT) / (JUMP_TIME_TO_DESCEND * JUMP_TIME_TO_DESCEND)) * -1.0
+@onready var sprite = $Sprite2D
+@onready var animationPlayer = $AnimationPlayer
+@onready var animationTree = $AnimationTree
+@onready var animationState = animationTree.get("parameters/playback")
+@onready var collision_shape2D = $CollisionShape2D
+@onready var timer = $Timer
+@onready var key_sprite = $Key
+
+var key = null: get = get_key, set = set_key
 
 func set_key(value):
 	key = value
@@ -101,7 +103,7 @@ func _physics_process(delta):
 			STAND:
 				animationState.travel("Stand")
 				
-		motion.x = lerp(motion.x, 0, FRICTION)
+		motion.x = lerp(motion.x, 0.0, FRICTION)
 		
 	
 	motion.y += get_gravity() * delta 
@@ -123,7 +125,10 @@ func _physics_process(delta):
 		if Input.is_action_just_released("ui_up") and motion.y < JUMP_VELOCITY/2:
 					motion.y = JUMP_VELOCITY/2
 	
-	motion = move_and_slide(motion, Vector2.UP)
+	set_velocity(motion)
+	set_up_direction(Vector2.UP)
+	move_and_slide()
+	motion = velocity
 
 func _on_Timer_timeout():
 	state = SIT

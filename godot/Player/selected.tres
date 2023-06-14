@@ -1,9 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bsa4pexahksi8"]
 
-[sub_resource type="Shader" id=76]
+[sub_resource type="Shader" id="76"]
 code = "shader_type canvas_item;
 
-uniform vec4 color : hint_color = vec4(1.0);
+uniform vec4 color : source_color = vec4(1.0);
 uniform float width : hint_range(0, 10) = 2.0;
 uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
 uniform bool inside = false;
@@ -65,9 +65,9 @@ void fragment() {
 }"
 
 [resource]
-shader = SubResource( 76 )
-shader_param/color = Color( 1, 1, 1, 1 )
-shader_param/width = 2.0
-shader_param/pattern = 0
-shader_param/inside = false
-shader_param/add_margins = false
+shader = SubResource("76")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = false

@@ -1,11 +1,11 @@
 extends StaticBody2D
 
-export (int) var id
-export (Vector2) var location_one
-export (Vector2) var location_two
+@export var id: int
+@export var location_one: Vector2
+@export var location_two: Vector2
 
-onready var tween = $Tween
-onready var sprite = $Sprite
+@onready var tween = $Tween
+@onready var sprite = $Sprite2D
 
 var at_location_one = true
 

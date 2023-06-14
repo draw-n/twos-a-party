@@ -1,66 +1,69 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://qsah0o7iu3n2"]
 
-[ext_resource path="res://Levels/LevelSelectButton.gd" type="Script" id=1]
-[ext_resource path="res://Levels/LevelSelectButtons/tutorial_disabled.png" type="Texture" id=2]
-[ext_resource path="res://LevelComponents/ui/single_coin.png" type="Texture" id=3]
-[ext_resource path="res://Fonts/rainyhearts.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Levels/LevelSelectButtons/tutorial_normal.png" type="Texture" id=5]
-[ext_resource path="res://Levels/LevelSelectButtons/tutorial_pressed.png" type="Texture" id=6]
+[ext_resource type="Script" path="res://Levels/LevelSelectButton.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c584w34aumjpw" path="res://Levels/LevelSelectButtons/tutorial_disabled.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dxph3qdhnaqfi" path="res://LevelComponents/ui/single_coin.png" id="3"]
+[ext_resource type="FontFile" uid="uid://da4eay861drux" path="res://Fonts/rainyhearts.ttf" id="4"]
+[ext_resource type="Texture2D" uid="uid://xpud7f42fil1" path="res://Levels/LevelSelectButtons/tutorial_normal.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://ds88p4o1hnwte" path="res://Levels/LevelSelectButtons/tutorial_pressed.png" id="6"]
 
-[sub_resource type="DynamicFont" id=1]
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 4 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("4")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [node name="LevelSelectButton" type="TextureButton"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 1 )
-normal_texture = ExtResource( 5 )
-pressed_texture = ExtResource( 6 )
-hover_texture = ExtResource( 6 )
-disabled_texture = ExtResource( 2 )
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+texture_normal = ExtResource("5")
+script = ExtResource("1")
+normal_texture = ExtResource("5")
+pressed_texture = ExtResource("6")
+hover_texture = ExtResource("6")
+disabled_texture = ExtResource("2")
 
 [node name="Label" type="Label" parent="."]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-custom_fonts/font = SubResource( 1 )
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_fonts/font = SubResource("1")
 text = "1"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -16.0
-margin_top = -8.0
-margin_right = 16.0
+offset_left = -16.0
+offset_top = -8.0
+offset_right = 16.0
 alignment = 1
 
 [node name="Star1" type="TextureRect" parent="HBoxContainer"]
 visible = false
-margin_right = 8.0
-margin_bottom = 8.0
-texture = ExtResource( 3 )
+layout_mode = 2
+texture = ExtResource("3")
 
 [node name="Star2" type="TextureRect" parent="HBoxContainer"]
 visible = false
-margin_left = 6.0
-margin_right = 14.0
-margin_bottom = 8.0
-texture = ExtResource( 3 )
+layout_mode = 2
+texture = ExtResource("3")
 
 [node name="Star3" type="TextureRect" parent="HBoxContainer"]
 visible = false
-margin_left = 12.0
-margin_right = 20.0
-margin_bottom = 8.0
-texture = ExtResource( 3 )
+layout_mode = 2
+texture = ExtResource("3")
 
 [connection signal="pressed" from="." to="." method="_on_LevelSelectButton_pressed"]

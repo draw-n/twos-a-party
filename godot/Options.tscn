@@ -1,174 +1,193 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=14 format=3 uid="uid://d33d8myejf06q"]
 
-[ext_resource path="res://Options.gd" type="Script" id=1]
-[ext_resource path="res://LevelComponents/ui/options_popup.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/Minecraft.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Fonts/rainyhearts.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://LevelComponents/ui/options_exit.png" type="Texture" id=5]
-[ext_resource path="res://LevelComponents/ui/options_exit_hover.png" type="Texture" id=6]
-[ext_resource path="res://LevelComponents/ui/options_slider_grabber.png" type="Texture" id=7]
-[ext_resource path="res://LevelComponents/ui/Controls.tscn" type="PackedScene" id=8]
+[ext_resource type="Script" path="res://Options.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://skxcohmjrb4v" path="res://LevelComponents/ui/options_popup.png" id="2"]
+[ext_resource type="FontFile" uid="uid://dopwqd2a6tkrh" path="res://Fonts/Minecraft.ttf" id="3"]
+[ext_resource type="FontFile" uid="uid://da4eay861drux" path="res://Fonts/rainyhearts.ttf" id="4"]
+[ext_resource type="Texture2D" uid="uid://r7n6sev3p63n" path="res://LevelComponents/ui/options_exit.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dvxvq5nk2670j" path="res://LevelComponents/ui/options_exit_hover.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://8b5gpvopxke7" path="res://LevelComponents/ui/options_slider_grabber.png" id="7"]
+[ext_resource type="PackedScene" path="res://LevelComponents/ui/Controls.tscn" id="8"]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id="3"]
 content_margin_top = 2.0
 content_margin_bottom = 2.0
-bg_color = Color( 0.580392, 0.690196, 0.760784, 1 )
+bg_color = Color(0.580392, 0.690196, 0.760784, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color( 0, 0, 0, 1 )
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 expand_margin_left = 2.0
-expand_margin_right = 2.0
 expand_margin_top = 2.0
+expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.231373, 0.364706, 0.788235, 1 )
+[sub_resource type="StyleBoxFlat" id="5"]
+bg_color = Color(0.231373, 0.364706, 0.788235, 1)
 
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.231373, 0.364706, 0.788235, 1 )
+[sub_resource type="StyleBoxFlat" id="4"]
+bg_color = Color(0.231373, 0.364706, 0.788235, 1)
 
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 3 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("3")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 4 )
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("4")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [node name="Options" type="CanvasLayer"]
-pause_mode = 2
+process_mode = 2
 layer = 100
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="Control" type="Control" parent="."]
-pause_mode = 2
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.25098 )
+color = Color(0, 0, 0, 0.25098)
 
 [node name="ColorRect" type="TextureRect" parent="Control"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -120.0
-margin_top = -121.0
-margin_right = 120.0
-margin_bottom = 121.0
-texture = ExtResource( 2 )
+offset_left = -120.0
+offset_top = -121.0
+offset_right = 120.0
+offset_bottom = 121.0
+texture = ExtResource("2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -99.0
-margin_top = -34.0
-margin_right = 100.0
-margin_bottom = 89.0
-custom_constants/separation = 50
-__meta__ = {
-"_edit_group_": true
-}
+offset_left = -99.0
+offset_top = -34.0
+offset_right = 100.0
+offset_bottom = 89.0
+theme_override_constants/separation = 50
 
 [node name="MusicSlider" type="HSlider" parent="Control/ColorRect/VBoxContainer"]
-margin_right = 199.0
-margin_bottom = 14.0
-custom_icons/grabber_highlight = ExtResource( 7 )
-custom_icons/grabber = ExtResource( 7 )
-custom_styles/slider = SubResource( 3 )
-custom_styles/grabber_area_highlight = SubResource( 4 )
-custom_styles/grabber_area = SubResource( 5 )
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("7")
+theme_override_icons/grabber_highlight = ExtResource("7")
+theme_override_styles/slider = SubResource("3")
+theme_override_styles/grabber_area = SubResource("5")
+theme_override_styles/grabber_area_highlight = SubResource("4")
 min_value = -60.0
 max_value = 20.0
 value = -20.0
+scrollable = false
 
 [node name="SoundSlider" type="HSlider" parent="Control/ColorRect/VBoxContainer"]
-margin_top = 64.0
-margin_right = 199.0
-margin_bottom = 78.0
-custom_icons/grabber_highlight = ExtResource( 7 )
-custom_icons/grabber = ExtResource( 7 )
-custom_styles/slider = SubResource( 3 )
-custom_styles/grabber_area_highlight = SubResource( 4 )
-custom_styles/grabber_area = SubResource( 5 )
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("7")
+theme_override_icons/grabber_highlight = ExtResource("7")
+theme_override_styles/slider = SubResource("3")
+theme_override_styles/grabber_area = SubResource("5")
+theme_override_styles/grabber_area_highlight = SubResource("4")
 min_value = -60.0
 max_value = 0.0
 value = -30.0
+scrollable = false
 
 [node name="Label" type="Label" parent="Control/ColorRect"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -29.5
-margin_top = 42.0
-margin_right = 29.5
-margin_bottom = 58.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
+offset_left = -29.5
+offset_top = 42.0
+offset_right = 29.5
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("1")
 text = "Options"
-align = 1
-valign = 1
 
 [node name="Label2" type="Label" parent="Control/ColorRect"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -25.5
-margin_top = 128.0
-margin_right = 25.5
-margin_bottom = 142.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
+offset_left = -25.5
+offset_top = 128.0
+offset_right = 25.5
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("2")
 text = "Sound"
-align = 1
-valign = 1
 
 [node name="Label3" type="Label" parent="Control/ColorRect"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -25.5
-margin_top = 64.0
-margin_right = 25.5
-margin_bottom = 78.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
+offset_left = -25.5
+offset_top = 64.0
+offset_right = 25.5
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("2")
 text = "Music"
-align = 1
-valign = 1
 
 [node name="Controls" type="Button" parent="Control/ColorRect"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -68.0
-margin_top = -60.0
-margin_right = 68.0
-margin_bottom = -30.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
+offset_left = -68.0
+offset_top = -60.0
+offset_right = 68.0
+offset_bottom = -30.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("1")
 text = "Controls"
 flat = true
 
 [node name="Exit" type="TextureButton" parent="."]
-margin_left = 348.0
-margin_top = 35.0
-margin_right = 368.0
-margin_bottom = 55.0
-texture_normal = ExtResource( 5 )
-texture_hover = ExtResource( 6 )
-texture_focused = ExtResource( 6 )
+offset_left = 348.0
+offset_top = 35.0
+offset_right = 368.0
+offset_bottom = 55.0
+texture_normal = ExtResource("5")
+texture_hover = ExtResource("6")
+texture_focused = ExtResource("6")
 
-[node name="Controls" parent="." instance=ExtResource( 8 )]
+[node name="Controls" parent="." instance=ExtResource("8")]
 visible = false
+layout_mode = 3
+anchors_preset = 15
 
 [connection signal="value_changed" from="Control/ColorRect/VBoxContainer/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="Control/ColorRect/VBoxContainer/SoundSlider" to="." method="_on_SoundSlider_value_changed"]

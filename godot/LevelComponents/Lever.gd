@@ -2,9 +2,9 @@ extends Area2D
 
 var available = true
 
-export (int) var id
+@export var id: int
 
-onready var sprite = $Sprite
+@onready var sprite = $Sprite2D
 
 signal change_gate_state
 

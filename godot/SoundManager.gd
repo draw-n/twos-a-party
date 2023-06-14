@@ -3,8 +3,8 @@ extends Node
 var music_volume
 var sound_volume
 
-onready var music_player = $MusicPlayer
-onready var sound_player = $SoundPlayer
+@onready var music_player = $MusicPlayer
+@onready var sound_player = $SoundPlayer
 
 var available_music = {
 	"main": preload("res://Audio/Music/MainTheme.wav"),
